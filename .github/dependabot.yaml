@@ -1,0 +1,29 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "00:00"
+      timezone: "Etc/UTC"
+    assignees:
+      - "fredclausen"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "00:00"
+      timezone: "Etc/UTC"
+    assignees:
+      - "fredclausen"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "00:00"
+      timezone: "Etc/UTC"
+    assignees:
+      - "fredclausen"
