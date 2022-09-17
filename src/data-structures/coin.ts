@@ -10,6 +10,10 @@ export class Coin {
     this.transactions = [];
   }
 
+  getName = (): string => {
+    return this.name;
+  };
+
   addTransaction = (transaction: CoinTransaction): void => {
     this.transactions.push(transaction);
   };
@@ -29,7 +33,7 @@ export class Coin {
     let total_cost = currency(0);
 
     this.transactions.forEach((transaction) => {
-      total_cost = total_cost.add(transaction.cost);
+      total_cost = total_cost.add(transaction.getTotalCost());
     });
 
     return total_cost;
@@ -50,10 +54,12 @@ export class Coin {
     let total_coins = 0.0;
 
     this.transactions.forEach((transaction) => {
-      costaverage = costaverage.add(transaction.cost);
+      costaverage = costaverage.add(transaction.getTotalCost());
       total_coins += transaction.total_coins;
     });
 
     return costaverage.divide(total_coins);
   };
 }
+
+module.exports = Coin;

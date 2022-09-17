@@ -19,8 +19,13 @@ export class CoinTransaction {
     this.cost = cost;
   }
 
-  getCost() {
+  // The base price of the transaction
+  getBaseCost() {
     return this.cost;
+  }
+
+  getTotalCost(): currency {
+    return this.cost.multiply(this.total_coins);
   }
 
   getTotalCoins() {
@@ -47,3 +52,5 @@ export class CoinTransaction {
     this.date = date;
   }
 }
+
+module.exports = CoinTransaction;
