@@ -1,7 +1,3 @@
-// import test, { describe } from "node:test";
-// import { Transaction } from "./transaction";
-// import currency from "currency.js";
-
 const CoinTransaction = require("./transaction");
 const currency = require("currency.js");
 

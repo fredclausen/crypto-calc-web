@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import path from "path";
 
 const app = express();
-const port = 5000;
+const port = 8080;
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "/index.html"));
