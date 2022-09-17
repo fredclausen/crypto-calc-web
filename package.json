@@ -4,16 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf ./build && rimraf ./dist",
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc",
     "build-webpack": "webpack --progress --mode development",
     "build-webpack-production": "webpack --progress --mode production",
-    "start": "npm-run-all --parallel watch:server watch:build",
-    "start-prod": "npm-run-all --parallel watch:server watch:build-prod",
+    "build-server": "webpack --mode production --config webpack.config.server.js",
+    "start": "npm run clean && npm run build-webpack && npm run build-server && npm-run-all --parallel watch:build watch:build-server watch:server ",
+    "start-prod": "npm run clean && npm run build-webpack-production && npm run build-server && npm-run-all --parallel watch:server watch:build-prod watch:build-server",
     "test": "jest",
     "watch:build": "webpack --watch --mode development",
     "watch:build-prod": "webpack --watch --mode production",
-    "watch:server": "nodemon \"./src/index.js\" --watch \"./dist\""
+    "watch:build-server": "webpack --watch --mode production --config webpack.config.server.js",
+    "watch:server": "nodemon \"./dist/server.js\" --watch \"./dist\""
   },
   "keywords": [],
   "author": "",
@@ -33,6 +36,7 @@
     "extract-loader": "^5.1.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^29.0.3",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "nodemon": "^2.0.20",
     "nodemon-webpack-plugin": "^4.8.1",
     "npm-run-all": "^4.1.5",
@@ -48,7 +52,9 @@
   "dependencies": {
     "currency.js": "^2.0.4",
     "express": "^4.18.1",
+    "fs": "^0.0.1-security",
     "jquery": "^3.6.1",
+    "net": "^1.0.2",
     "uuid": "^9.0.0"
   }
 }

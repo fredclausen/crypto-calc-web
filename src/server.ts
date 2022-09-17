@@ -3,7 +3,7 @@
 // and the dev build commands are the way they are. Production will be all
 // statically served through nginx
 
-import express, { Request, Response } from "express";
+import express from "express";
 import path from "path";
 
 const app = express();
@@ -17,4 +17,5 @@ app.get("/", function (_, res) {
 
 app.listen(port, () => {
   console.log(`🚀 server started at http://localhost:${port}`);
+  console.log("Done");
 });
