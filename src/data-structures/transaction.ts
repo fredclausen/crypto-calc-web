@@ -20,37 +20,37 @@ export class CoinTransaction {
   }
 
   // The base price of the transaction
-  getBaseCost() {
+  getBaseCost = (): currency => {
     return this.cost;
-  }
+  };
 
-  getTotalCost(): currency {
+  getTotalCost = (): currency => {
     return this.cost.multiply(this.total_coins);
-  }
+  };
 
-  getTotalCoins() {
+  getTotalCoins = (): number => {
     return this.total_coins;
-  }
+  };
 
-  getDate() {
+  getDate = (): Date => {
     return this.date;
-  }
+  };
 
-  getUuid() {
+  getUuid = (): string => {
     return this.uuid;
-  }
+  };
 
-  setCost(cost: currency) {
+  setCost = (cost: currency): void => {
     this.cost = cost;
-  }
+  };
 
-  setTotalCoins(amount: number) {
+  setTotalCoins = (amount: number): void => {
     this.total_coins = amount;
-  }
+  };
 
-  setDate(date: Date) {
+  setDate = (date: Date): void => {
     this.date = date;
-  }
+  };
 }
 
 module.exports = CoinTransaction;
