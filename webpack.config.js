@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const CopyPlugin = require("copy-webpack-plugin");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 let config = {
   entry: {
@@ -69,8 +70,7 @@ let config = {
   },
   output: {
     //filename: "[name].[chunkhash].js",
-    path: path.resolve(__dirname, "dist/js"),
-    publicPath: "js/",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
 
@@ -102,12 +102,15 @@ let config = {
     },
   },
   plugins: [
+    new HTMLWebpackPlugin({
+      template: path.join(__dirname, "./src/index.html"),
+    }),
     new CopyPlugin({
       patterns: [
-        {
-          from: path.resolve(__dirname, "src/index.html"),
-          to: path.resolve(__dirname, "dist"),
-        },
+        // {
+        //   from: path.resolve(__dirname, "src/index.html"),
+        //   to: path.resolve(__dirname, "dist"),
+        // },
         {
           from: path.resolve(__dirname, "src/styles.css"),
           to: path.resolve(__dirname, "dist/css"),

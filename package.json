@@ -7,10 +7,13 @@
     "start:dev": "nodemon",
     "build": "rimraf ./build && tsc",
     "build-webpack": "webpack --progress --mode development",
+    "build-webpack-production": "webpack --progress --mode production",
     "start": "npm-run-all --parallel watch:server watch:build",
+    "start-prod": "npm-run-all --parallel watch:server watch:build-prod",
     "test": "jest",
     "watch:build": "webpack --watch --mode development",
-    "watch:server": "nodemon \"./dist/index.js\" --watch \"./dist\""
+    "watch:build-prod": "webpack --watch --mode production",
+    "watch:server": "nodemon \"./src/index.js\" --watch \"./dist\""
   },
   "keywords": [],
   "author": "",
@@ -28,6 +31,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "extract-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^29.0.3",
     "nodemon": "^2.0.20",
     "nodemon-webpack-plugin": "^4.8.1",
