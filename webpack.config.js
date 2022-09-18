@@ -105,18 +105,18 @@ let config = {
     new HTMLWebpackPlugin({
       template: path.join(__dirname, "./src/index.html"),
     }),
-    new CopyPlugin({
-      patterns: [
-        // {
-        //   from: path.resolve(__dirname, "src/index.html"),
-        //   to: path.resolve(__dirname, "dist"),
-        // },
-        {
-          from: path.resolve(__dirname, "src/styles.css"),
-          to: path.resolve(__dirname, "dist/css"),
-        },
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     // {
+    //     //   from: path.resolve(__dirname, "src/index.html"),
+    //     //   to: path.resolve(__dirname, "dist"),
+    //     // },
+    //     {
+    //       from: path.resolve(__dirname, "src/styles.css"),
+    //       to: path.resolve(__dirname, "dist/css"),
+    //     },
+    //   ],
+    // }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
