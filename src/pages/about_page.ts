@@ -1,3 +1,7 @@
 import { Page } from "./page";
 
-export class AboutPage extends Page {}
+export class AboutPage extends Page {
+  constructor() {
+    super("About");
+  }
+}

@@ -12,9 +12,9 @@ import { AboutPage } from "./pages/about_page";
 let index_path: string = "";
 let index_page: string = "";
 
-const portfolio_page: PortfolioPage = new PortfolioPage("Portfolio");
-const coin_page: CoinPage = new CoinPage("Coin");
-const about_page: AboutPage = new AboutPage("About");
+const portfolio_page: PortfolioPage = new PortfolioPage();
+const coin_page: CoinPage = new CoinPage();
+const about_page: AboutPage = new AboutPage();
 
 // jQuery entry point. The page is ready for rendering.
 $((): void => {
