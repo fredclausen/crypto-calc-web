@@ -1,1 +1,2 @@
-import "./navbar.ts";
+import "./navbar";
+import "./images";
