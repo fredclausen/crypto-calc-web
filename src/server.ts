@@ -11,11 +11,26 @@ const port = 8080;
 
 app.use(express.static(path.join(__dirname, "./")));
 
-app.get("/", function (_, res) {
+app.get("/", (_, res) => {
   res.sendFile(path.join(__dirname, "./index.html"));
+});
+
+app.get("/portfolio", (_, res) => {
+  res.sendFile(path.join(__dirname, "./index.html"));
+});
+
+app.get("/about", (_, res) => {
+  res.sendFile(path.join(__dirname, "./index.html"));
+});
+
+app.get("/coins", (_, res) => {
+  res.sendFile(path.join(__dirname, "./index.html"));
+});
+
+app.get("*", (_, res) => {
+  res.redirect("/");
 });
 
 app.listen(port, () => {
   console.log(`🚀 server started at http://localhost:${port}`);
-  console.log("Done");
 });
