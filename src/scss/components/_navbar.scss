@@ -35,6 +35,15 @@
     transform: translateY(50%);
   }
 
+  .icon:hover + .text {
+    opacity: 1;
+    transform: translateY(-10%)
+  }
+
+  .icon:hover {
+    transform: translateY(-30%);
+  }
+
   .list .icon {
     position: relative;
     transition: 250ms ease-in-out;
@@ -57,44 +66,6 @@
   .list .active .icon {
     transform: translateY(calc(-50% - var(--nav-item-padding)));
   }
-
-  /* .list .active::before {
-    content: "";
-    box-sizing: content-box;
-    position: absolute;
-    width: var(--border-radius);
-    height: var(--border-radius);
-    background-color: white;
-    z-index: 1;
-    top: calc(-1 * var(--indicator-spacing));
-    left: calc(.2 * var(--indicator-spacing));
-    transform: translateX(-100%);
-    border-top-right-radius: 100%;
-    border-width: calc(var(--indicator-spacing));
-    border-color: var(--background-color);
-    border-style: solid;
-    border-bottom: none;
-    border-left: none;
-  }
-
-  .list .active::after {
-    content: "";
-    box-sizing: content-box;
-    position: absolute;
-    width: var(--border-radius);
-    height: var(--border-radius);
-    background-color: white;
-    z-index: 1;
-    top: calc(-1 * var(--indicator-spacing));
-    right: calc(.2 * var(--indicator-spacing));
-    transform: translateX(100%);
-    border-top-left-radius: 100%;
-    border-width: calc(var(--indicator-spacing));
-    border-color: var(--background-color);
-    border-style: solid;
-    border-bottom: none;
-    border-right: none;
-  } */
 
   .indicator {
     position: absolute;
