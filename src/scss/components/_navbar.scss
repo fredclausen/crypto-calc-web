@@ -22,6 +22,7 @@
     flex-direction: column;
     align-items: center;
     padding: var(--nav-item-padding);
+    cursor: pointer;
   }
 
   .list .text {
@@ -37,6 +38,7 @@
   .list .icon {
     position: relative;
     transition: 250ms ease-in-out;
+    cursor: pointer;
   }
 
   .list .icon svg {

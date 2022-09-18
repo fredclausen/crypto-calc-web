@@ -1,0 +1,25 @@
+#main {
+    border: 2px solid var(--font-color);
+    border-radius: var(--border-radius);
+    height: 86%;
+    width: calc(100% - 4rem);
+    position: relative;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+#main a {
+    color: var(--font-color);
+}
+
+#main a:visited {
+    color: var(--font-color);
+}
+
+#main a:hover {
+    color: var(--font-color-hovered);
+}
+
+#main p:first-of-type {
+    margin-top: 0px;
+}

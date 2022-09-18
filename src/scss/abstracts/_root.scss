@@ -16,5 +16,26 @@ $icon-size: 2rem;
     --nav-item-padding: calc(var(--icon-size) / 2);
     --background-color: #{$background-color};
     --font-color: #{$font-color};
+    --font-color-hovered: #{$font-color-hovered};
     --nav-bar-circle-color: #{$nav-bar-circle-color};
-  }
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+}
