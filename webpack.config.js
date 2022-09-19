@@ -27,12 +27,16 @@ let config = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         loader: "file-loader",
         options: {
-          outputPath: "../images",
+          outputPath: "../dist/images",
           name: "[name].[ext]",
         },
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(sa|sc)ss$/,
         use: [
           {
             loader: "extract-loader",

@@ -16,6 +16,6 @@ export class AboutPage extends Page {
       <p>
         This application is free and open source and licensed under the MIT license. No information is collected or stored anywhere other than
         your browser/computer. Please feel free to audit the source code or contribute to the project on
-         <a href="https://github.com/fredclausen/crypto-calc-web">GitHub</a>.`);
+         <a href="https://github.com/fredclausen/crypto-calc-web" target="_blank">GitHub</a>.`);
   }
 }

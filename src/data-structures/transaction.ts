@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import currency from "currency.js";
 
-export class CoinTransaction {
+export default class CoinTransaction {
   total_coins: number; // FIXME: we will probably have an issue with precision here
   date: Date;
   uuid: string;

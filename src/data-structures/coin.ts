@@ -1,13 +1,14 @@
-import { CoinTransaction } from "./transaction";
+import { default as CoinTransaction } from "./transaction";
 import currency from "currency.js";
 
-export class Coin {
+export default class Coin {
   name: string;
   transactions: CoinTransaction[];
 
   constructor(name: string) {
     this.name = name;
     this.transactions = [];
+    return this;
   }
 
   getName = (): string => {
@@ -16,6 +17,10 @@ export class Coin {
 
   addTransaction = (transaction: CoinTransaction): void => {
     this.transactions.push(transaction);
+    // sort the array by date
+    this.transactions.sort((a, b) => {
+      return a.getDate().getTime() - b.getDate().getTime();
+    });
   };
 
   updateTransaction = (uuid: string, transaction: CoinTransaction): void => {

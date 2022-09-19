@@ -11,6 +11,10 @@ export class Page {
     $(this.target_div_element).html(this.title);
   }
 
+  set_inactive() {
+    console.log(`Leaving Page ${this.title}`);
+  }
+
   set_window_title_bar(): void {
     document.title = "Crypto Web Calculator: " + this.title;
   }
