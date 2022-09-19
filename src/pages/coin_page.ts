@@ -71,7 +71,6 @@ export class CoinPage extends Page {
       .autocomplete({
         source: coins,
         select: (_, ui) => {
-          console.log(ui.item.label);
           const index = ui.item.value;
           let coin = this.find_coin(index);
 
@@ -82,7 +81,6 @@ export class CoinPage extends Page {
         },
         minLength: 0,
         focus: (_, ui) => {
-          console.log(ui.item.label);
           const index = ui.item.value;
           let coin = this.find_coin(index);
 
