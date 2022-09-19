@@ -5,16 +5,20 @@ const uuid = require("uuid");
 
 describe("Coin", () => {
   test("Creating a basic coin", () => {
-    const coin = new Coin("FRED");
-    expect(coin.getName()).toEqual("FRED");
+    const coin = new Coin("Fred Coin", "FRED");
+    expect(coin.getName()).toEqual("Fred Coin");
+    expect(coin.getSymbol()).toEqual("FRED");
+    expect(coin.getFullName()).toEqual("Fred Coin: FRED");
   });
 
   test("Creating a coin with basic transactions", () => {
-    const coin = new Coin("FRED");
+    const coin = new Coin("Fred Coin", "FRED");
     const transaction_one = new Transaction(1000, new Date(), currency("1"));
     const transaction_two = new Transaction(2000, new Date(), currency("2"));
     coin.addTransaction(transaction_one);
-    expect(coin.getName()).toEqual("FRED");
+    expect(coin.getName()).toEqual("Fred Coin");
+    expect(coin.getSymbol()).toEqual("FRED");
+    expect(coin.getFullName()).toEqual("Fred Coin: FRED");
     expect(coin.getBalance().format()).toEqual("$1,000.00");
     expect(coin.calculateDCA().format()).toEqual("$1.00");
     coin.addTransaction(transaction_two);
@@ -23,7 +27,7 @@ describe("Coin", () => {
   });
 
   test("Creating a coin with basic transactions and updating", () => {
-    const coin = new Coin("FRED");
+    const coin = new Coin("Fred Coin", "FRED");
     const uuid = "test";
     const transaction_one = new Transaction(
       1000,
@@ -40,7 +44,9 @@ describe("Coin", () => {
 
     const transaction_two = new Transaction(2000, new Date(), currency("2"));
     coin.addTransaction(transaction_one);
-    expect(coin.getName()).toEqual("FRED");
+    expect(coin.getName()).toEqual("Fred Coin");
+    expect(coin.getSymbol()).toEqual("FRED");
+    expect(coin.getFullName()).toEqual("Fred Coin: FRED");
     expect(coin.getBalance().format()).toEqual("$1,000.00");
     expect(coin.calculateDCA().format()).toEqual("$1.00");
     coin.addTransaction(transaction_two);

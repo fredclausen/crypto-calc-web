@@ -16,9 +16,7 @@ export class CoinPage extends Page {
   set_active = (): void => {
     super.set_active();
 
-    let coins = this.get_coin_list().map((coin) => {
-      return coin.name;
-    });
+    let coins = this.get_coin_names();
 
     $(this.target_div_element).html(
       `<div id="coinsearch">
@@ -46,12 +44,16 @@ export class CoinPage extends Page {
 
   // TODO: implement this. Will need storage of coins first.
   get_coin_list = (): Coin[] => {
-    this._coins = [new Coin("BTC"), new Coin("FREDC")];
+    this._coins = [new Coin("Bitcoin", "BTC"), new Coin("Fred Coin", "FREDC")];
     // sort the coins by name
     this._coins = this._coins.sort((a, b) => {
-      return a.getName().localeCompare(b.getName());
+      return a.getFullName().localeCompare(b.getFullName());
     });
     return this._coins;
+  };
+
+  get_coin_names = (): Array<string> => {
+    return this._coins.map((coin) => coin.getFullName());
   };
   //TODO: implement this. Will need storage of coins first.
   save_coin_list = (): void => {
@@ -62,7 +64,7 @@ export class CoinPage extends Page {
     if (name === undefined) return undefined;
 
     return this._coins.find((coin) => {
-      return coin.getName() === name;
+      return coin.getFullName() === name;
     });
   };
 
@@ -77,7 +79,7 @@ export class CoinPage extends Page {
           // Verify that the coin exists
           if (coin === undefined) return;
 
-          $("#coinlist").html(`Would show: ${coin.getName()}`);
+          $("#coinlist").html(`Would show: ${coin.getFullName()}`);
         },
         minLength: 0,
         focus: (_, ui) => {
@@ -87,7 +89,7 @@ export class CoinPage extends Page {
           // Verify that the coin exists
           if (coin === undefined) return;
 
-          $("#coinlist").html(`Would show: ${coin.getName()}`);
+          $("#coinlist").html(`Would show: ${coin.getFullName()}`);
         },
         response: (_, ui) => {
           if (ui.content.length === 0) return;
@@ -98,7 +100,7 @@ export class CoinPage extends Page {
           // Verify that the coin exists
           if (coin === undefined) return;
 
-          $("#coinlist").html(`Would show: ${coin.getName()}`);
+          $("#coinlist").html(`Would show: ${coin.getFullName()}`);
         },
       })
       .on("focus", () => {

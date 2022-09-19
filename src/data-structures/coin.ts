@@ -3,17 +3,35 @@ import currency from "currency.js";
 
 export default class Coin {
   name: string;
+  symbol: string;
   transactions: CoinTransaction[];
 
-  constructor(name: string) {
+  constructor(name: string, symbol: string) {
     this.name = name;
     this.transactions = [];
+    this.symbol = symbol;
     return this;
   }
 
   getName = (): string => {
     return this.name;
   };
+
+  getSymbol = (): string => {
+    return this.symbol;
+  };
+
+  updateName = (name: string): void => {
+    this.name = name;
+  };
+
+  updateSymbol = (symbol: string): void => {
+    this.symbol = symbol;
+  };
+
+  getFullName(): string {
+    return `${this.name}: ${this.symbol}`;
+  }
 
   addTransaction = (transaction: CoinTransaction): void => {
     this.transactions.push(transaction);
