@@ -1,5 +1,7 @@
 import { Page } from "./page";
 import { default as Coin } from "../data-structures/coin";
+import { default as Transaction } from "../data-structures/transaction";
+import currency from "currency.js";
 import "jquery-ui/ui/widgets/autocomplete";
 import "jquery-ui/themes/base/base.css";
 import "jquery-ui/themes/base/core.css";
@@ -51,6 +53,13 @@ export class CoinPage extends Page {
       new Coin("Ethereum", "ETH"),
       new Coin("Litecoin", "LTC"),
     ];
+
+    this._coins[0].addTransaction(
+      new Transaction(1000, new Date(), currency("1"))
+    );
+    this._coins[0].addTransaction(
+      new Transaction(2000, new Date(), currency("2"))
+    );
 
     // sort the coins by name
     this._coins = this._coins.sort((a, b) => {
