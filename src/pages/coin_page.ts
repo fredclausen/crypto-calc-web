@@ -24,7 +24,7 @@ export class CoinPage extends Page {
       <input id = "coinsearch-field">
       </div>
       <div id='nocoins'>No coins yet. Add some!</div>
-      <div id='coinlist' style="margin-top: 5rem"></div>`
+      <div id='coinlist'></div>`
     );
 
     if (coins.length === 0) {
@@ -44,7 +44,14 @@ export class CoinPage extends Page {
 
   // TODO: implement this. Will need storage of coins first.
   get_coin_list = (): Coin[] => {
-    this._coins = [new Coin("Bitcoin", "BTC"), new Coin("Fred Coin", "FREDC")];
+    this._coins = [
+      new Coin("Bitcoin", "BTC"),
+      new Coin("Fred Coin", "FREDC"),
+      new Coin("Doge Coin", "DOGE"),
+      new Coin("Ethereum", "ETH"),
+      new Coin("Litecoin", "LTC"),
+    ];
+
     // sort the coins by name
     this._coins = this._coins.sort((a, b) => {
       return a.getFullName().localeCompare(b.getFullName());
@@ -72,6 +79,9 @@ export class CoinPage extends Page {
     $("#coinsearch-field")
       .autocomplete({
         source: coins,
+        close: (event, ui) => {
+          $("#coinlist").removeClass("pushdown");
+        },
         select: (_, ui) => {
           const index = ui.item.value;
           let coin = this.find_coin(index);
@@ -106,6 +116,7 @@ export class CoinPage extends Page {
       .on("focus", () => {
         const val = $("#coinsearch-field").val();
         $("#coinsearch-field").autocomplete("search", val as string);
+        $("#coinlist").addClass("pushdown");
       });
   };
 }
