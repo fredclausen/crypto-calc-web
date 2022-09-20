@@ -22,7 +22,7 @@
     "watch:server": "nodemon \"./dist/server.js\" --watch \"./dist\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Fred Clausen",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.19.1",
@@ -50,7 +50,7 @@
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
-    "ts-loader": "^9.3.1",
+    "ts-loader": "^9.4.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
     "webpack": "^5.74.0",

@@ -7,12 +7,22 @@ import "jquery-ui/themes/base/base.css";
 import "jquery-ui/themes/base/core.css";
 import "jquery-ui/themes/base/theme.css";
 import "jquery-ui/themes/base/autocomplete.css";
+
+declare const window: Window;
 export class CoinPage extends Page {
   private _coins: Array<Coin>;
 
   constructor() {
     super("Coins");
     this._coins = this.get_coin_list();
+    window.deleteCoin = (uuid: string) => {
+      const index = this._coins.findIndex((coin) => coin.getUUID() === uuid);
+
+      if (index === -1) return;
+
+      this._coins.splice(index, 1);
+      this.set_active();
+    };
   }
 
   set_active = (): void => {
@@ -140,7 +150,9 @@ export class CoinPage extends Page {
   };
 
   display_coin = (coin: Coin): void => {
-    $("#coinname").html(`Name: ${coin.getName()}`);
+    $("#coinname").html(
+      `Name: ${coin.getName()} <i class="fa-solid fa-trash mouse-show" onclick="deleteCoin('${coin.getUUID()}')"></i>`
+    );
     $("#coinsymbol").html(`Symbol: ${coin.getSymbol()}`);
     $("#coinamount").html(
       `Amount: ${coin.getTotalCoins()} ${coin.getSymbol()}`
