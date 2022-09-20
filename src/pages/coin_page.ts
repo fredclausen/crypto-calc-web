@@ -26,7 +26,16 @@ export class CoinPage extends Page {
       <input id = "coinsearch-field">
       </div>
       <div id='nocoins'>No coins yet. Add some!</div>
-      <div id='coinlist'></div>`
+      <div id='coinlist'>
+      <div id='coininfo'>
+        <div id="coinname"></div>
+        <div id="coinsymbol"></div>
+        <div id="coinamount"></div>
+        <div id="coinvalue"></div>
+      </div>
+      <div id='addcointransaction'>
+      <div id='cointransactions'></div>
+      </div>`
     );
 
     if (coins.length === 0) {
@@ -35,6 +44,7 @@ export class CoinPage extends Page {
     }
 
     this.build_auto_complete(coins);
+    this.display_coin(this._coins[0]);
 
     $("#nocoins").hide();
   };
@@ -98,7 +108,7 @@ export class CoinPage extends Page {
           // Verify that the coin exists
           if (coin === undefined) return;
 
-          $("#coinlist").html(`Would show: ${coin.getFullName()}`);
+          this.display_coin(coin);
         },
         minLength: 0,
         focus: (_, ui) => {
@@ -108,7 +118,7 @@ export class CoinPage extends Page {
           // Verify that the coin exists
           if (coin === undefined) return;
 
-          $("#coinlist").html(`Would show: ${coin.getFullName()}`);
+          this.display_coin(coin);
         },
         response: (_, ui) => {
           if (ui.content.length === 0) return;
@@ -119,7 +129,7 @@ export class CoinPage extends Page {
           // Verify that the coin exists
           if (coin === undefined) return;
 
-          $("#coinlist").html(`Would show: ${coin.getFullName()}`);
+          this.display_coin(coin);
         },
       })
       .on("focus", () => {
@@ -127,5 +137,13 @@ export class CoinPage extends Page {
         $("#coinsearch-field").autocomplete("search", val as string);
         $("#coinlist").addClass("pushdown");
       });
+  };
+
+  display_coin = (coin: Coin): void => {
+    $("#coinname").html(`Name: ${coin.getName()}`);
+    $("#coinsymbol").html(`Symbol: ${coin.getSymbol()}`);
+    $("#coinamount").html(
+      `Amount: ${coin.getTotalCoins()} ${coin.getSymbol()}`
+    );
   };
 }
