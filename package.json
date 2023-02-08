@@ -34,7 +34,7 @@
     "@types/jqueryui": "^1.12.16",
     "@types/node": "^18.8.5",
     "@types/uuid": "^8.3.4",
-    "babel-jest": "^29.2.0",
+    "babel-jest": "^29.4.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "extract-loader": "^5.1.0",
