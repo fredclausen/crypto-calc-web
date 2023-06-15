@@ -1,7 +1,7 @@
 repos:
   # lint yaml, line and whitespace
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
       - id: check-yaml
         exclude: ^(node_modules/)
@@ -20,26 +20,26 @@ repos:
 
   # lint the dockerfiles
   - repo: https://github.com/hadolint/hadolint
-    rev: v2.10.0
+    rev: v2.12.1-beta
     hooks:
       - id: hadolint
         exclude: ^(node_modules/)
 
   # lint python formatting
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 23.3.0
     hooks:
       - id: black
 
   - repo: https://github.com/pycqa/flake8
-    rev: "5.0.4" # pick a git hash / tag to point to
+    rev: "6.0.0" # pick a git hash / tag to point to
     hooks:
       - id: flake8
         args: ["--extend-ignore=W503,W504,E501"]
 
   # prettier
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v3.0.0-alpha.1" # Use the sha / tag you want to point at
+    rev: "v3.0.0-alpha.9-for-vscode" # Use the sha / tag you want to point at
     hooks:
       - id: prettier
         types_or: [file, bash, sh, javascript, jsx, ts, tsx]
@@ -50,7 +50,7 @@ repos:
         exclude: ^(node_modules/|Dockerfile*)
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.25.0
+    rev: v8.42.0
     hooks:
       - id: eslint
         files: \.[j]sx?$ # *.js, *.jsx, *.ts and *.tsx
@@ -64,17 +64,17 @@ repos:
           - eslint-loader@1.6.1
 
   - repo: https://github.com/codespell-project/codespell.git
-    rev: "v2.2.1" # Use the sha / tag you want to point at
+    rev: "v2.2.5" # Use the sha / tag you want to point at
     hooks:
       - id: codespell
         types: [text]
         exclude: ^(node_modules/|package.json|package-lock.json)
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.8.0.4
+    rev: v0.9.0.5
     hooks:
       - id: shellcheck
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.18.3
+    rev: 0.23.2
     hooks:
       - id: check-github-actions
       - id: check-github-workflows
