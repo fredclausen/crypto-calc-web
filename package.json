@@ -33,7 +33,7 @@
     "@types/jquery": "^3.5.18",
     "@types/jqueryui": "^1.12.17",
     "@types/node": "^20.6.2",
-    "@types/uuid": "^9.0.3",
+    "@types/uuid": "^9.0.4",
     "babel-jest": "^29.7.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
@@ -67,6 +67,6 @@
     "jquery": "^3.7.1",
     "jquery-ui": "^1.13.2",
     "net": "^1.0.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   }
 }
