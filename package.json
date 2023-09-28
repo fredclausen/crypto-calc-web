@@ -30,7 +30,7 @@
     "@babel/preset-typescript": "^7.22.15",
     "@types/dinero.js": "^1.9.1",
     "@types/express": "^4.17.18",
-    "@types/jquery": "^3.5.19",
+    "@types/jquery": "^3.5.20",
     "@types/jqueryui": "^1.12.18",
     "@types/node": "^20.6.5",
     "@types/uuid": "^9.0.4",
