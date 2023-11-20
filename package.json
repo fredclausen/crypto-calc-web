@@ -32,7 +32,7 @@
     "@types/express": "^4.17.20",
     "@types/jquery": "^3.5.27",
     "@types/jqueryui": "^1.12.19",
-    "@types/node": "^20.9.0",
+    "@types/node": "^20.9.2",
     "@types/uuid": "^9.0.6",
     "babel-jest": "^29.7.0",
     "copy-webpack-plugin": "^11.0.0",
